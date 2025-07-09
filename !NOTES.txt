@@ -1,0 +1,119 @@
+API Style
+Vue 2 make options API
+vue 3 make Composition API
+
+- contoh option API
+<script>
+export default{
+  data(){
+    return {
+      count: 0
+    }
+  },
+
+  methods: {
+    increment() {
+      this.count++
+    }
+  }
+
+  mounted() {
+    console.log('yeyy")
+  }
+}
+</script>
+
+<template>
+  <button @click="increment">Angkanya {{ count }} </button>
+</template>
+
+untuk yang option API dia dipisah untuk data method dan mountednya 
+
+- Composition API diawali dengan <script setup>
+contoh :
+<script setup>
+import { ref, onMounted } from 'vue
+
+const count = ref(0)
+
+function increment() {
+  count.value++
+}
+
+onMounted(() => {
+  console.log('yeyy')
+}
+</script>
+
+<template>
+  <button @click="increment">Angkanya : {{ count }} </button>
+</template>
+
+kalau composition API dia sama seperti js biasanya
+
+- Directive
+  Attribut special dengan awalan v
+  seperti v-for, v-on dan v-slot, v-bind
+
+Standarisasi directive Arguments
+contoh:
+  v-bind:href
+  href adalah argument
+contoh :
+  v-on:click
+  click adalah argument
+
+- Dynamic Directive Argument
+argument nya bisa di custom sesuai JS Expression
+contoh:
+  v-bind[namaVariable]
+
+- Modifier
+suffix atau akhiran dari Directive
+tidak semua Directive punya Modifier
+contoh:
+  v-on:submit.prevent="onSubmit"
+  v-on (Directive)
+  submit (Attribut)
+  prevent (Modifier)
+  "onSubmit" (Value)
+
+untuk directive lengkap
+https://vuejs.org/api/built-in-directives.html
+
+
+Reactive State
+- untuk merefresh halaman component. Agar datanya berubah
+contoh
+const angka = ref(0)
+ref(0) // 0 adalah default valuenya
+// vaiable angka nnti akan menjadi object
+
+untuk mengubah value
+angka.value = 2
+
+!! component akan diload sekali saja !!
+!! tapi Ketika pakai Reactive State (ref)
+!! yang hanya dirender bukan componentnya melainkan hanya templatenya saja
+
+Scoped CSS hanya berlaku di component itu saja. Jadi tidak akan bentrok dengan component lain
+
+
+Event Modifier
+adalah event dimana Ketika kita klick atau tekan key di keyboard
+
+Watchers
+Menghandle kondisi Ketika state berubah
+
+Adanya lifecycle. Untuk Alur hidup atau atau alur di rendernya suatu template component
+https://vuejs.org/api/composition-api-lifecycle
+
+Penulisan Component menggunakan PascalCase
+
+Component punya property atau data. dia pakai defineProp()
+
+Props ini bisa pakai banyak props dengan menggunakan object di prop-validation
+https://vuejs.org/guide/components/props.html#prop-validation
+
+
+
