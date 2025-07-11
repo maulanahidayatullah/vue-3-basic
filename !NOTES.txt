@@ -115,5 +115,10 @@ Component punya property atau data. dia pakai defineProp()
 Props ini bisa pakai banyak props dengan menggunakan object di prop-validation
 https://vuejs.org/guide/components/props.html#prop-validation
 
+Define Model Bisa untuk mengirimkan data ke komponen lain
+missal ada component product dan saya ingin mengirim ata yang ada di product ke product detail
+
+gunakan <slot> untuk nnti mengisi component yang bisa diisi dari component parent
+
 
 
